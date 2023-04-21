@@ -33,6 +33,7 @@ val workflow = workflow(
     job(
         id = "deploy",
         runsOn = UbuntuLatest,
+        _customArguments = mapOf("permissions" to mapOf("contents" to "read", "deployments" to "write"))
     ) {
         uses(name = "Check out", action = CheckoutV3())
         run(
