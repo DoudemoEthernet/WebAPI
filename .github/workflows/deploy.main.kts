@@ -15,7 +15,7 @@ val CLOUDFLARE_API_TOKEN by Contexts.secrets
 val CLOUDFLARE_ACCOUNT_ID by Contexts.secrets
 
 val targetBranches = listOf("main")
-val targetPaths = listOf("v1.yaml")
+val targetPaths = listOf("v1.yaml", ".github/workflows/deploy.yaml")
 val workflow = workflow(
     name = "Deploy API",
     on = listOf(

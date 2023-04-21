@@ -9,11 +9,13 @@ on:
     - main
     paths:
     - v1.yaml
+    - .github/workflows/deploy.yaml
   pull_request:
     branches:
     - main
     paths:
     - v1.yaml
+    - .github/workflows/deploy.yaml
 jobs:
   check_yaml_consistency:
     name: Check YAML consistency
