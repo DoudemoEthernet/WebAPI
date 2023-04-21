@@ -1,0 +1,72 @@
+openapi: 3.0.3
+info:
+  title: "GreenBack API v1"
+  description: "WebAPI for JTDI"
+  contact:
+    email: "doudemoethernet@fastmail.jp"
+  version: "1.0.0"
+paths:
+  "/task":
+    post:
+      tags: ["Task"]
+      summary: "Create task"
+      description: "新規タスクを作成します"
+      operationId: "createTask"
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Task-create"
+      responses:
+        "200":
+          description: "success"
+        "400":
+          description: "failed to create task"
+    get:
+      tags: ["Task"]
+      summary: "get task"
+      description: "タスクを取得します"
+      operationId: "getTask"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Task-get-array"
+
+components:
+  schemas:
+    Task-create:
+      type: object
+      properties:
+        title:
+          type: string
+          example: "TaskName"
+        description:
+          type: string
+          example: "TaskDescription"
+        difficulty:
+          type: number
+          example: 0
+    Task-get-content:
+      type: object
+      properties:
+        id:
+          type: number
+          example: 0
+        title:
+          type: string
+          example: "TaskName"
+        description:
+          type: string
+          example: "TaskDescription"
+        difficulty:
+          type: number
+          example: 0
+    Task-get-array:
+      type: array
+      items:
+        $ref: "#/components/schemas/Task-get-content"
+
