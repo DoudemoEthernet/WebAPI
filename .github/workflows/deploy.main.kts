@@ -41,9 +41,9 @@ val workflow = workflow(
             curl -L -O https://github.com/swagger-api/swagger-ui/archive/refs/heads/master.zip
             7z x master.zip
             cp -r swagger-ui-master/dist out
-            sed -i 's|https://petstore.swagger.io/v2/swagger.json|https://apidocs.shuttle.pub/api/v1.yaml|' out/swagger-initializer.js
+            sed -i 's|https://petstore.swagger.io/v2/swagger.json|https://doudemoethernet-webapi.pages.dev/api/v1.yaml|' out/swagger-initializer.js
             mkdir -p out/api
-            cp document/v1.yaml out/api
+            cp v1.yaml out/api
             """.trimIndent()
         )
         uses(
