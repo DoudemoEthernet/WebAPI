@@ -5,6 +5,12 @@ info:
   contact:
     email: "doudemoethernet@fastmail.jp"
   version: "1.0.0"
+servers:
+  - url: "https://greenback.doudemoethernet.workers.dev"
+    description: "v1"
+tags:
+  - name: "Task"
+    description: "タスク"
 paths:
   "/task":
     post:
