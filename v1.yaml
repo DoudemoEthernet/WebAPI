@@ -60,8 +60,9 @@ components:
       type: object
       properties:
         id:
-          type: number
-          example: 0
+          type: string
+          example: 45fb12a8-70a2-4535-970a-3d66b0d6f83f
+          format: uuid
         title:
           type: string
           example: "TaskName"
