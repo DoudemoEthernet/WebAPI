@@ -9,9 +9,57 @@ servers:
   - url: "https://greenback.doudemoethernet.workers.dev"
     description: "v1"
 tags:
+  - name: "Account"
+    description: "アカウント"
   - name: "Task"
     description: "タスク"
 paths:
+  "/account/signup":
+    post:
+      tags: ["Account"]
+      summary: "Signup"
+      description: "新規アカウントの作成"
+      operationId: "signUp"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Account"
+      responses:
+        "200":
+          description: "success"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Token"
+        "400":
+          description: "bad request"
+        "500":
+          description: "internal error"
+  "/account/login":
+    post:
+      tags: ["Account"]
+      summary: "Login"
+      description: "ログイン"
+      operationId: "login"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Account"
+      responses:
+        "200":
+          description: "success"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Token"
+        "400":
+          description: "bad request"
+        "404":
+          description: "not found"
+        "500":
+          description: "internal error"
   "/task":
     post:
       tags: ["Task"]
@@ -90,6 +138,25 @@ paths:
 
 components:
   schemas:
+    Account:
+      type: object
+      properties:
+        userId:
+          type: string
+          example: "username"
+        password:
+          type: string
+          example: "password"
+    Token:
+      type: object
+      properties:
+        token:
+          type: string
+          example: "aasdahbsakodjfpaoi3w40m03w4hjnvgsopru32"
+        expr:
+          type: number
+          description: "Expiration time of the API token(unix timestamp)"
+          example: 123456789123465
     Task-create:
       type: object
       properties:
