@@ -155,7 +155,7 @@ components:
           example: "aasdahbsakodjfpaoi3w40m03w4hjnvgsopru32"
         expr:
           type: number
-          description: "Expiration time of the API token(unix timestamp)"
+          description: "Expiration time of the API token(unix timestamp,UTF)"
           example: 123456789123465
     Task-create:
       type: object
