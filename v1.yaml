@@ -66,6 +66,8 @@ paths:
       summary: "Create task"
       description: "新規タスクを作成します"
       operationId: "createTask"
+      security:
+        - ApiKeyAuth: []
       requestBody:
         description: ""
         content:
@@ -84,6 +86,8 @@ paths:
       summary: "get task"
       description: "タスクを取得します"
       operationId: "getTask"
+      security:
+        - ApiKeyAuth: []
       responses:
         "200":
           description: ""
@@ -100,6 +104,8 @@ paths:
       summary: "update task"
       description: "タスクを編集します"
       operationId: "updateTask"
+      security:
+        - ApiKeyAuth: []
       requestBody:
         content:
           application/json:
@@ -118,6 +124,8 @@ paths:
       summary: "delete task"
       description: "タスクを削除します"
       operationId: "deleteTask"
+      security:
+        - ApiKeyAuth: []
       parameters:
         - name: "id"
           in: path
@@ -137,6 +145,11 @@ paths:
           description: "internal error"
 
 components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
   schemas:
     Account:
       type: object
