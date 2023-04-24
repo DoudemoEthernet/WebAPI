@@ -141,7 +141,7 @@ components:
     Account:
       type: object
       properties:
-        userId:
+        user:
           type: string
           example: "username"
         password:
