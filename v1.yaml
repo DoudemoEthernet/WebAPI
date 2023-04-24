@@ -6,7 +6,7 @@ info:
     email: "doudemoethernet@fastmail.jp"
   version: "1.0.0"
 servers:
-  - url: "https://greenback.doudemoethernet.workers.dev"
+  - url: "https://greenback.doudemoether.net"
     description: "v1"
 tags:
   - name: "Account"
