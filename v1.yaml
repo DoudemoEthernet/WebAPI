@@ -182,6 +182,14 @@ paths:
       responses:
         "200":
           description: "success"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  exp:
+                    type: number
+                    example: 123456
         "400":
           description: "bad request"
         "403":
