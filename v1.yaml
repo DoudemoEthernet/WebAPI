@@ -13,6 +13,8 @@ tags:
     description: "アカウント"
   - name: "Task"
     description: "タスク"
+  - name: "Exp"
+    description: "経験値"
 paths:
   "/account/signup":
     post:
@@ -141,6 +143,49 @@ paths:
           description: "bad request"
         "404":
           description: "target task not found"
+        "500":
+          description: "internal error"
+    post:
+      tags: ["Task"]
+      summary: "complete task"
+      description: "タスクを完了としてマークします(==削除)"
+      operationId: "completeTask"
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - name: "id"
+          in: path
+          required: true
+          description: "Task id"
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: "success"
+        "400":
+          description: "bad request"
+        "403":
+          description: "forbidden"
+        "404":
+          description: "task not found"
+        "500":
+          description: "internal error"
+  "/exp":
+    get:
+      tags: ["Exp"]
+      summary: "get exp"
+      description: "経験値を取得します"
+      operationId: "getExp"
+      security:
+        - ApiKeyAuth: []
+      responses:
+        "200":
+          description: "success"
+        "400":
+          description: "bad request"
+        "403":
+          description: "forbidden"
         "500":
           description: "internal error"
 
